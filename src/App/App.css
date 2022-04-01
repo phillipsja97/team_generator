@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+  background-color: #525856;
+  width: 100vw;
+  height: 200vh;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  padding-top: 3em;
+}
+
+.playerList {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.generateButton {
+  display: flex;
+  justify-content: center;
+  margin: 2em;
+}
+
+.backToListButton {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.teamElements {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
