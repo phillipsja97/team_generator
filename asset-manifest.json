@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/team_generator/static/css/main.ca10fffe.css",
+    "main.js": "/team_generator/static/js/main.40e0a51e.js",
+    "index.html": "/team_generator/index.html",
+    "main.ca10fffe.css.map": "/team_generator/static/css/main.ca10fffe.css.map",
+    "main.40e0a51e.js.map": "/team_generator/static/js/main.40e0a51e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca10fffe.css",
+    "static/js/main.40e0a51e.js"
+  ]
+}
