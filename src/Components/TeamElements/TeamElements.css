@@ -5,3 +5,12 @@
 .numOfTeams {
   padding: .5em;
 }
+
+.numOfPlayersMobile {
+  margin: 1em;
+}
+
+.desktopElements {
+  display: flex;
+  justify-content: center;
+}

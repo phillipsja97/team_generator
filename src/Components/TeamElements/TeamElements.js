@@ -3,9 +3,11 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import './TeamElements.css';
 import { TextField } from "@material-ui/core";
+import { useMediaQuery } from 'react-responsive';
 
 export default function TeamElement(props) {
   const [addition, setAddition] = React.useState("");
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
 
   const numOfTeamsOnChange = (e) => {
     props.setNumberOfTeams(e.target.value);
@@ -16,15 +18,14 @@ export default function TeamElement(props) {
   };
 
   return (
+    isDesktopOrLaptop ?
     <React.Fragment>
+    <div className="desktopElements">
       <div className="numOfPlayers">
         <Paper
           component="form"
           sx={{
               p: '2px 4px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
               backgroundColor: 'white',
               color: 'white',
               width: 300,
@@ -35,19 +36,9 @@ export default function TeamElement(props) {
           >
           <InputBase
             sx={{ ml: 1, flex: 1 }}
-            placeholder="Amount of Players on Each Team"
+            placeholder="# Players on Each Team"
             onChange={numOfPlayersOnChange}
           />
-            {/* <TextField
-              label="Number Of Players"
-              id="outlined"
-              defaultValue="Small"
-              // variant="filled"
-              // size="small"
-              inputProps={{
-                style: { color: 'white' }
-              }}
-            /> */}
         </Paper>
       </div>
       <div className="numOfTeams">
@@ -55,8 +46,6 @@ export default function TeamElement(props) {
           component="form"
           sx={{
             p: '2px 4px',
-            display: 'flex',
-            alignItems: 'center',
             width: 300,
             backgroundColor: 'white',
             borderColor: 'rgb(82, 138, 99)',
@@ -66,11 +55,56 @@ export default function TeamElement(props) {
         >
           <InputBase
             sx={{ ml: 1, flex: 1 }}
-            placeholder="Number of Teams To Create"
+            placeholder="# of Teams To Create"
             onChange={numOfTeamsOnChange}
           />
         </Paper>
+      </div>
     </div>
   </React.Fragment>
+  :
+  <React.Fragment>
+  <div className="numOfPlayersMobile">
+    <div className="numOfPlayers">
+      <Paper
+        component="form"
+        sx={{
+            p: '2px 4px',
+            backgroundColor: 'white',
+            color: 'white',
+            width: '100%',
+            borderColor: 'rgb(82, 138, 99)',
+            borderStyle: 'double',
+            borderWidth: 'thick'
+          }}
+        >
+        <InputBase
+          sx={{ ml: 1, flex: 1 }}
+          placeholder="# of Players in Squad"
+          onChange={numOfPlayersOnChange}
+        />
+      </Paper>
+    </div>
+    <div className="numOfTeams">
+      <Paper
+        component="form"
+        sx={{
+          p: '2px 4px',
+          width: '100%',
+          backgroundColor: 'white',
+          borderColor: 'rgb(82, 138, 99)',
+          borderStyle: 'double',
+          borderWidth: 'thick'
+        }}
+      >
+        <InputBase
+          sx={{ ml: 1, flex: 1 }}
+          placeholder="# of Teams"
+          onChange={numOfTeamsOnChange}
+        />
+      </Paper>
+    </div>
+  </div>
+</React.Fragment>
   );
 }

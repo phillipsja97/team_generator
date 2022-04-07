@@ -6,7 +6,8 @@ import ListOfPlayers from '../Components/ListOfPlayers/ListOfPlayers';
 import GenerateTeamsButton from '../Components/GenerateTeams';
 import Teams from '../Components/Teams/Teams';
 import TeamElements from '../Components/TeamElements/TeamElements';
-import Alert from '../Components/Alert'
+import Alert from '../Components/Alert';
+import { useMediaQuery } from 'react-responsive';
 
 export default function App() {
   const [playerData, setPlayerData] = React.useState([
@@ -24,9 +25,16 @@ export default function App() {
   const [numberOfTeams, setNumberOfTeams] = React.useState(0);
   const [numberOfPlayers, setNumberOfPlayers] = React.useState(0);
   const [open, setOpen] = React.useState(false);
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
+  const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
 
   const createRandomTeams = () => {
     setAllTeams([]);
+    console.log(numberOfTeams, 'numberOfTeamsInput');
+    console.log(numberOfPlayers, 'numberOfPlayersInput');
     if (
       numberOfTeams === 0
       || numberOfPlayers === 0
@@ -62,18 +70,75 @@ export default function App() {
 
   const backToList = () => {
     setShowTeams(false);
-    setNumberOfPlayers("");
-    setNumberOfTeams("");
+    setNumberOfPlayers(0);
+    setNumberOfTeams(0);
   };
 
   console.log(playerData);
 
   return (
-    <div className="App">
+    isDesktopOrLaptop ? 
+    <div className="desktop">
       {
         showTeams ?
         <React.Fragment>
           <div className="playerList">
+            {allTeams.map((teams) => {
+              return (<Teams
+                        teams={teams}
+                      />)
+            })}
+          </div>
+        </React.Fragment>
+        :
+        <React.Fragment>
+          <div className="input">
+          <PlayerInput
+            playerData={playerData}
+            setPlayerData={setPlayerData}
+          />
+          </div>
+          <Alert 
+            open={open}
+            setOpen={setOpen}
+          />
+          <div className="teamElements">
+            <TeamElements
+              numberOfTeams={numberOfTeams}
+              numberOfPlayers={numberOfPlayers}
+              setNumberOfTeams={setNumberOfTeams}
+              setNumberOfPlayers={setNumberOfPlayers}
+            />
+          </div>
+          <div className="playerList">
+          <ListOfPlayers
+            playerData={playerData}
+            handleDelete={handleDelete}
+            />
+          </div>
+        </React.Fragment>
+      }
+      <div className="generateButton">
+        <GenerateTeamsButton
+          createRandomTeams={createRandomTeams}
+          showTeams={showTeams}
+        />
+      </div>
+      <div className="backToListButton">
+        {
+        showTeams ? 
+        <Button variant="contained" onClick={backToList}>
+          Back To List
+        </Button> : null
+        }
+      </div>
+    </div>
+    :
+    <div className="mobile">
+      {
+        showTeams ?
+        <React.Fragment>
+          <div className="playerListMobile">
             {allTeams.map((teams) => {
               return (<Teams
                         teams={teams}
