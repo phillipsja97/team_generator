@@ -1,8 +1,8 @@
 .desktop {
   text-align: center;
-  background-color: #525856;
+  background-color: #0F100B;
   width: 100vw;
-  height: 200vh;
+  height: 100%;
 }
 
 .input {
@@ -55,4 +55,8 @@
   background-color: #525856;
   width: 100%;
   height: 100vh;
+}
+
+.MuiButton-root {
+  background-color: 'black'
 }

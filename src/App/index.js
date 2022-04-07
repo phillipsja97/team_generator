@@ -33,13 +33,13 @@ export default function App() {
 
   const createRandomTeams = () => {
     setAllTeams([]);
-    console.log(numberOfTeams, 'numberOfTeamsInput');
-    console.log(numberOfPlayers, 'numberOfPlayersInput');
+
     if (
       numberOfTeams === 0
       || numberOfPlayers === 0
       || isNaN(numberOfTeams) === true
       || isNaN(numberOfPlayers) === true
+     
     ) {
       setOpen(true);
       return;

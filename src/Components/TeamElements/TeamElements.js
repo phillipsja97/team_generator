@@ -26,8 +26,7 @@ export default function TeamElement(props) {
           component="form"
           sx={{
               p: '2px 4px',
-              backgroundColor: 'white',
-              color: 'white',
+              backgroundColor: '#525856',
               width: 300,
               borderColor: 'rgb(82, 138, 99)',
               borderStyle: 'double',
@@ -35,7 +34,7 @@ export default function TeamElement(props) {
             }}
           >
           <InputBase
-            sx={{ ml: 1, flex: 1 }}
+            sx={{ ml: 1, flex: 1, color: 'white' }}
             placeholder="# Players on Each Team"
             onChange={numOfPlayersOnChange}
           />
@@ -47,14 +46,14 @@ export default function TeamElement(props) {
           sx={{
             p: '2px 4px',
             width: 300,
-            backgroundColor: 'white',
+            backgroundColor: '#525856',
             borderColor: 'rgb(82, 138, 99)',
             borderStyle: 'double',
             borderWidth: 'thick'
           }}
         >
           <InputBase
-            sx={{ ml: 1, flex: 1 }}
+            sx={{ ml: 1, flex: 1, color: 'white' }}
             placeholder="# of Teams To Create"
             onChange={numOfTeamsOnChange}
           />
@@ -70,16 +69,15 @@ export default function TeamElement(props) {
         component="form"
         sx={{
             p: '2px 4px',
-            backgroundColor: 'white',
+            backgroundColor: '#525856',
             color: 'white',
-            width: '100%',
             borderColor: 'rgb(82, 138, 99)',
             borderStyle: 'double',
             borderWidth: 'thick'
           }}
         >
         <InputBase
-          sx={{ ml: 1, flex: 1 }}
+          sx={{ color: 'white' }}
           placeholder="# of Players in Squad"
           onChange={numOfPlayersOnChange}
         />
@@ -90,15 +88,14 @@ export default function TeamElement(props) {
         component="form"
         sx={{
           p: '2px 4px',
-          width: '100%',
-          backgroundColor: 'white',
+          backgroundColor: '#525856',
           borderColor: 'rgb(82, 138, 99)',
           borderStyle: 'double',
           borderWidth: 'thick'
         }}
       >
         <InputBase
-          sx={{ ml: 1, flex: 1 }}
+          sx={{ ml: 1, flex: 1, color: 'white' }}
           placeholder="# of Teams"
           onChange={numOfTeamsOnChange}
         />

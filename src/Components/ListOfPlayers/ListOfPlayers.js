@@ -11,13 +11,8 @@ import { useMediaQuery } from 'react-responsive';
 import './ListOfPlayers.css';
 
 const Demo = styled('div')(() => ({
-  backgroundColor: 'white',
-  borderColor: 'rgb(82, 138, 99)',
-  borderStyle: 'solid',
-  width: '100%',
-  height: '90%',
-  padding: 0,
-  margin: 0,
+  padding: '0em',
+  margin: '0em',
   flexWrap: 'wrap'
 }));
 

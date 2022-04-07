@@ -13,14 +13,16 @@ import { styled } from '@mui/material/styles';
 import './ListPlayerName.css';
 
 const Demo = styled('div')(() => ({
-  backgroundColor: 'white',
-  borderTop: 0,
-  borderBottom: 'medium dotted rgb(194, 207, 161)',
-  borderLeft: 0,
-  borderRight: 0,
+  borderBottom: 'medium double rgb(82, 138, 99)',
+  borderTop: 'medium double rgb(82, 138, 99)',
+  borderLeft: 'medium double rgb(82, 138, 99)',
+  borderRight: 'medium double rgb(82, 138, 99)',
+  backgroundColor: '#525856',
   padding: 0,
   paddingRight: 10,
-  margin: 0
+  margin: 0,
+  display: 'flex',
+  justifyContent: 'center'
 }));
 
 export default function ListPlayerName(props) {
@@ -30,30 +32,31 @@ export default function ListPlayerName(props) {
     <ListItem
       key={props.data.index}
       disableGutters={true}
-      // sx={{
-      // borderColor: 'green',
-      // borderStyle: 'solid',
-      // padding: 0,
-      // margin: 0
-      // }}
         secondaryAction={
           <IconButton
             edge="end"
             aria-label="delete"
             onClick={props.handleDelete(props.data.index)}
+            style={{ color: 'white' }}
           >
-            <DeleteIcon />
+            <DeleteIcon 
+            />
           </IconButton>
         }
     >
-      <ListItemAvatar>
-        <Avatar>
-          <AccountCircle />
+      <ListItemAvatar
+        style={{ color: 'black', boxShadow: 'none' }}
+      >
+        <Avatar style={{ backgroundColor: 'transparent', padding: 1, margin: 1 }}>
+          <AccountCircle 
+            style={{ color: 'white', padding: 5 }}
+          />
         </Avatar>
       </ListItemAvatar>
       <ListItemText
         primary={props.data.label}
         secondary={false}
+        style={{ color: 'white '}}
       />
     </ListItem>
     </Demo>

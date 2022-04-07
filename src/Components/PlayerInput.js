@@ -14,6 +14,9 @@ export default function PlayerInput(props) {
 
   const addPlayer = () => {
     console.log(addition, 'Adding Player');
+    if (addition === "") {
+      return;
+    }
     const playerProp = {
       index: props.playerData.length,
       label: addition
@@ -37,8 +40,8 @@ export default function PlayerInput(props) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
-        color: 'white',
+        backgroundColor: '#525856',
+        color: '#FCFCFC',
         width: 300,
         borderColor: 'rgb(82, 138, 99)',
         borderStyle: 'double',
@@ -46,16 +49,22 @@ export default function PlayerInput(props) {
       }}
     >
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
+        sx={{ ml: 1, flex: 1, color: '#FCFCFC' }}
         placeholder="Add Player.."
         onChange={addPlayerOnChange}
         onKeyPress={handleKeyPress}
         value={addition}
+        inputProps={{
+          sx: {
+            "&::placeholder": {
+              color: "white"
+            }
+          }
+        }}
       />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton 
-        color="primary"
-        sx={{ p: '10px' }}
+        sx={{ p: '10px', color: 'white' }}
         aria-label="directions"
         onClick={addPlayer}
         >
